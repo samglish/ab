@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdoulaye Daouda — Applied Linguist &amp; Ph.D. Candidate</title>
+<meta name="description" content="Abdoulaye Daouda — Ph.D. Candidate in English for Specific Purposes, Modibbo Adama University, Yola. Research in Applied Linguistics, Sociolinguistics, and Language Education.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:#101827;          /* near-black navy ink */
+    --ink-soft:#2c3547;
+    --paper:#f6f4ee;        /* cool paper, not cream-cliché */
+    --paper-dim:#eeece3;
+    --gold:#b3862a;         /* manuscript gold */
+    --gold-soft:#e6d5ab;
+    --sage:#5c7a68;         /* muted academic green */
+    --sage-soft:#c9d8cd;
+    --line:#d8d4c6;
+    --white:#fffdf8;
+    --shadow: 0 20px 60px -25px rgba(16,24,39,0.35);
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  ::selection{background:var(--gold-soft); color:var(--ink);}
+
+  .container{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ============ GLOSS MOTIF ============
+     Interlinear glossing = a linguistics device where a line of text
+     is annotated word-by-word underneath with grammatical/semantic tags.
+     Used throughout as the site's signature device: headings, tags, dividers. */
+  .gloss{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0 10px;
+  }
+  .gloss .word{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:4px;
+  }
+  .gloss .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    opacity:0.85;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sage);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;
+    height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  /* ============ NAV ============ */
+  header.site-nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(246,244,238,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .3s ease;
+  }
+  header.site-nav.scrolled{ box-shadow:0 6px 24px -18px rgba(16,24,39,0.4); }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .brand .mark{
+    width:34px;height:34px;
+    border:1px solid var(--ink);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.02em;
+  }
+  nav.links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;padding:0;
+  }
+  nav.links a{
+    text-decoration:none;
+    font-size:14px;
+    color:var(--ink-soft);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav.links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:1px;
+    background:var(--gold);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{ width:100%; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;border:none;cursor:pointer;
+    padding:6px;
+  }
+  .nav-toggle span{
+    width:22px;height:2px;background:var(--ink);display:block;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:168px 0 100px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.4vw, 62px);
+    line-height:1.05;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero .role{
+    margin-top:18px;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:520px;
+  }
+  .hero .location{
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--sage);
+    letter-spacing:0.02em;
+  }
+  .hero-gloss{
+    margin-top:38px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .hero-gloss .word .surface{ font-size:15px; color:var(--ink); font-family:'IBM Plex Mono',monospace; }
+  .cta-row{
+    margin-top:40px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.03em;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:var(--shadow); background:var(--ink-soft); }
+  .btn-ghost{
+    border:1px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ---- photo frame: adapts to any image ratio, always fills, crops gracefully ---- */
+  .photo-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:4px;
+    overflow:hidden;
+    background:linear-gradient(150deg, var(--ink) 0%, #1c2740 55%, var(--sage) 130%);
+    box-shadow:var(--shadow);
+  }
+  .photo-frame::before{
+    content:"";
+    position:absolute; inset:0;
+    border:1px solid rgba(255,255,255,0.18);
+    z-index:3;
+    pointer-events:none;
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+    position:relative;
+    z-index:1;
+  }
+  .photo-frame .initials-fallback{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:96px;
+    color:rgba(255,255,255,0.92);
+    letter-spacing:0.02em;
+    z-index:0;
+  }
+  .photo-caption{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:16px 18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--gold-soft);
+    background:linear-gradient(0deg, rgba(16,24,39,0.75), transparent);
+    z-index:2;
+    text-transform:uppercase;
+  }
+
+  /* ============ SECTIONS ============ */
+  section{
+    padding:96px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:grid;
+    grid-template-columns:1fr 1.6fr;
+    gap:40px;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(28px, 3.4vw, 40px);
+  }
+  .section-head .lede{
+    color:var(--ink-soft);
+    font-size:17px;
+    max-width:52ch;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* About */
+  .about-body{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:56px;
+  }
+  .about-body p{ font-size:17px; color:var(--ink-soft); }
+  blockquote.pull{
+    margin:0;
+    padding:26px 0 26px 26px;
+    border-left:2px solid var(--gold);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+
+  /* Focus grid */
+  .focus-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .focus-card{
+    background:var(--paper);
+    padding:32px 28px;
+    transition:background .3s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .focus-card:hover{ background:var(--white); }
+  .focus-card .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:0.06em;
+    display:block;
+    margin-bottom:14px;
+  }
+  .focus-card h3{
+    font-size:19px;
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .focus-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .focus-card::after{
+    content:"";
+    position:absolute;
+    right:-40px; bottom:-40px;
+    width:100px; height:100px;
+    border:1px solid var(--sage-soft);
+    border-radius:50%;
+    opacity:0;
+    transform:scale(0.6);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .focus-card:hover::after{ opacity:1; transform:scale(1); }
+
+  .research-note{
+    margin-top:44px;
+    padding:28px 32px;
+    background:var(--white);
+    border-left:3px solid var(--sage);
+    font-size:15.5px;
+    color:var(--ink-soft);
+  }
+
+  /* Teaching */
+  .teach-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  .teach-item{
+    padding:26px;
+    background:var(--white);
+    border:1px solid var(--line);
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .teach-item:hover{ transform:translateY(-4px); border-color:var(--gold); }
+  .teach-item .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+  }
+  .teach-item h4{ font-size:18px; margin-top:10px; font-weight:500; }
+
+  /* Languages */
+  .lang-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .lang-card{
+    padding:28px;
+    border:1px solid var(--line);
+    background:var(--white);
+  }
+  .lang-card .lname{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+  }
+  .lang-card .level{
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--sage);
+  }
+  .dots{ margin-top:16px; display:flex; gap:6px; }
+  .dots span{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--line);
+  }
+  .dots span.on{ background:var(--gold); }
+  .lang-note{
+    margin-top:30px;
+    color:var(--ink-soft);
+    font-size:15.5px;
+    max-width:70ch;
+  }
+
+  /* Vision */
+  .vision-wrap{
+    background:var(--ink);
+    color:var(--paper);
+    padding:96px 0;
+    border-top:1px solid var(--line);
+  }
+  .vision-wrap .eyebrow{ color:var(--gold-soft); }
+  .vision-wrap .eyebrow::before{ background:var(--gold-soft); }
+  .vision-wrap h2{ color:var(--paper); font-size:clamp(26px,3.2vw,36px); max-width:18ch; }
+  .vision-wrap p{ color:#c8cddb; font-size:17px; max-width:68ch; margin-top:24px; }
+
+  /* Trainings / timeline */
+  .timeline{
+    position:relative;
+    padding-left:28px;
+    border-left:1px solid var(--line);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom:30px;
+  }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-33px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--gold);
+  }
+  .t-item .yr{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:0.04em;
+  }
+  .t-item h4{
+    font-size:17px;
+    font-weight:500;
+    margin-top:6px;
+  }
+  .t-item .place{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+
+  .badge-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    margin-top:56px;
+  }
+  .badge-cols h4{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:400;
+    color:var(--sage);
+    margin-bottom:18px;
+  }
+  .badge-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+  .badge-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+    color:var(--ink-soft);
+    display:flex;
+    gap:12px;
+  }
+  .badge-list li::before{
+    content:"—";
+    color:var(--gold);
+    flex-shrink:0;
+  }
+
+  /* Publication */
+  .pub-card{
+    padding:40px;
+    background:var(--white);
+    border:1px solid var(--line);
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .pub-icon{
+    width:52px;height:52px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-size:12px;
+    flex-shrink:0;
+  }
+  .pub-card h3{ font-size:20px; font-weight:500; line-height:1.4; }
+  .pub-card .journal{
+    margin-top:10px;
+    font-size:14px;
+    color:var(--sage);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .pub-card a.doi{
+    display:inline-block;
+    margin-top:16px;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:underline;
+    text-decoration-color:var(--gold);
+    text-underline-offset:4px;
+  }
+
+  /* Contact */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+  }
+  .contact-wrap h2{ font-size:clamp(30px,4vw,46px); max-width:14ch; }
+  .contact-list{ list-style:none; margin:32px 0 0; padding:0; }
+  .contact-list li{
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:16px;
+  }
+  .contact-list li span.label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--sage);
+  }
+  .contact-list li a{
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:500;
+    position:relative;
+  }
+  .contact-list li a::after{
+    content:"→";
+    margin-left:8px;
+    display:inline-block;
+    transition:transform .25s ease;
+  }
+  .contact-list li a:hover::after{ transform:translateX(4px); }
+
+  footer{
+    padding:36px 0;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px){
+    nav.links{ display:none; }
+    .nav-toggle{ display:flex; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero{ padding:140px 0 70px; }
+    .photo-frame{ max-width:340px; margin:0 auto; aspect-ratio:1/1; }
+    .section-head{ grid-template-columns:1fr; gap:16px; }
+    .about-body{ grid-template-columns:1fr; gap:32px; }
+    .focus-grid{ grid-template-columns:1fr 1fr; }
+    .teach-list{ grid-template-columns:1fr; }
+    .lang-row{ grid-template-columns:1fr; }
+    .badge-cols{ grid-template-columns:1fr; gap:28px; }
+    .pub-card{ grid-template-columns:1fr; }
+    .contact-wrap{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 560px){
+    .focus-grid{ grid-template-columns:1fr; }
+    .container{ padding:0 20px; }
+    .nav-inner{ padding:0 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="mark">AD</span> Abdoulaye Daouda</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#focus">Focus</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#languages">Languages</a>
+      <a href="#trainings">Formation</a>
+      <a href="#publication">Publication</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" style="position:fixed; inset:0; background:var(--ink); z-index:99; display:none; flex-direction:column; align-items:center; justify-content:center; gap:28px;">
+  <a href="#about" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">About</a>
+  <a href="#focus" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Focus</a>
+  <a href="#teaching" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Teaching</a>
+  <a href="#languages" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Languages</a>
+  <a href="#trainings" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Formation</a>
+  <a href="#publication" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Publication</a>
+  <a href="#contact" class="m-link" style="color:var(--paper); font-family:'Fraunces',serif; font-size:26px; text-decoration:none;">Contact</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" style="border-top:none;">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Ph.D. Candidate · English for Specific Purposes</div>
+      <h1>Abdoulaye <em>Daouda</em></h1>
+      <p class="role">Applied linguist researching how English functions in multilingual African
+        workplaces — building a scholarly bridge between language, communication, and social
+        transformation.</p>
+      <p class="location">Modibbo Adama University, Yola, Nigeria — originally from the Far North Region of Cameroon</p>
+
+      <div class="hero-gloss gloss" aria-hidden="true">
+        <div class="word"><span class="surface">Language</span><span class="tag">n. tool</span></div>
+        <div class="word"><span class="surface">is</span><span class="tag">cop.</span></div>
+        <div class="word"><span class="surface">a</span><span class="tag">det.</span></div>
+        <div class="word"><span class="surface">bridge</span><span class="tag">n. metaphor</span></div>
+        <div class="word"><span class="surface">for</span><span class="tag">prep.</span></div>
+        <div class="word"><span class="surface">transformation.</span><span class="tag">n. outcome</span></div>
+      </div>
+
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#publication" class="btn btn-ghost">Read the research</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="photo-frame">
+        <!-- Replace the src below with your photo. object-fit: cover keeps any
+             image ratio filling the frame cleanly. Fallback initials show until replaced. -->
+        <img src="photo.jpg" alt="Portrait of Abdoulaye Daouda" onerror="this.style.display='none'">
+        <div class="initials-fallback">AD</div>
+        <div class="photo-caption">Yola, Nigeria — 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">About</div>
+      <h2>Rooted in language, driven by research.</h2>
+    </div>
+    <div class="about-body reveal">
+      <p>I am Abdoulaye Daouda, a newly admitted Ph.D. Candidate in English for Specific Purposes
+        at Modibbo Adama University, Yola. Originally from the Far North Region of Cameroon, I am
+        deeply committed to academic excellence, linguistic research, and higher education
+        development across Africa.</p>
+      <p>My academic journey is rooted in a passion for language, communication, and the role of
+        English in multilingual workplaces in Cameroon. I strongly believe that language is not
+        only a tool for communication but also a bridge for social transformation and intellectual
+        empowerment.</p>
+      <blockquote class="pull">"Language is not only a tool for communication —<br>it is a bridge
+        for social transformation."</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACADEMIC FOCUS ============ -->
+<section id="focus">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Academic Focus</div>
+      <h2>Seven threads of inquiry, one discipline.</h2>
+      <p class="lede">My research interests span the structures and social life of language —
+        from theory to classroom to workplace.</p>
+    </div>
+
+    <div class="focus-grid reveal">
+      <div class="focus-card"><span class="code">01 · AL</span><h3>Applied Linguistics</h3>
+        <p>Bridging linguistic theory and real-world language problems.</p></div>
+      <div class="focus-card"><span class="code">02 · SO</span><h3>Sociolinguistics</h3>
+        <p>Language variation and use across social contexts and communities.</p></div>
+      <div class="focus-card"><span class="code">03 · DA</span><h3>Discourse Analysis</h3>
+        <p>How meaning is constructed across spoken and written texts.</p></div>
+      <div class="focus-card"><span class="code">04 · SLA</span><h3>Second Language Acquisition</h3>
+        <p>How learners internalize and develop a second language.</p></div>
+      <div class="focus-card"><span class="code">05 · ICT</span><h3>ICT in Language Education</h3>
+        <p>Technology-enabled approaches to language teaching and learning.</p></div>
+      <div class="focus-card"><span class="code">06 · MLC</span><h3>Multilingualism in Cameroonian Contexts</h3>
+        <p>Language contact and coexistence in Cameroon's linguistic landscape.</p></div>
+      <div class="focus-card"><span class="code">07 · ESP</span><h3>English for Specific Purposes</h3>
+        <p>Tailoring English instruction to professional and academic domains.</p></div>
+    </div>
+
+    <div class="research-note reveal">
+      My current doctoral research explores issues related to English for Specific Purposes —
+      language use, communication practices, and linguistic development within multilingual
+      communities.
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHING ============ -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Teaching Experience</div>
+      <h2>Teaching English, purposefully.</h2>
+      <p class="lede">I have experience teaching English Language across two focus areas.</p>
+    </div>
+    <div class="teach-list reveal">
+      <div class="teach-item">
+        <span class="num">01</span>
+        <h4>The Four Skills of English Language</h4>
+        <p style="color:var(--ink-soft); font-size:15px; margin-top:8px;">Listening, speaking,
+          reading, and writing — taught as an integrated, communicative whole.</p>
+      </div>
+      <div class="teach-item">
+        <span class="num">02</span>
+        <h4>English for Academic Purposes</h4>
+        <p style="color:var(--ink-soft); font-size:15px; margin-top:8px;">Preparing learners for
+          the specific reading, writing, and discourse demands of academic study.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section id="languages">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Languages</div>
+      <h2>A multilingual lens on research.</h2>
+    </div>
+    <div class="lang-row reveal">
+      <div class="lang-card">
+        <div class="lname">English</div>
+        <div class="level">Advanced</div>
+        <div class="dots"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+      </div>
+      <div class="lang-card">
+        <div class="lname">French</div>
+        <div class="level">Advanced</div>
+        <div class="dots"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+      </div>
+      <div class="lang-card">
+        <div class="lname">Fulani</div>
+        <div class="level">Fluent</div>
+        <div class="dots"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+      </div>
+    </div>
+    <p class="lang-note reveal">My multilingual background strengthens my academic perspective and
+      enhances my understanding of cross-cultural communication.</p>
+  </div>
+</section>
+
+<!-- ============ VISION ============ -->
+<section class="vision-wrap">
+  <div class="container">
+    <div class="eyebrow">Academic Vision</div>
+    <h2 class="reveal">Contributing to research, policy, and reform.</h2>
+    <p class="reveal">My academic goal is to contribute meaningfully to linguistic research,
+      policy development, and language education reform in Cameroon. I aspire to collaborate with
+      international scholars and institutions in advancing research in Applied Linguistics and
+      English Language Studies.</p>
+  </div>
+</section>
+
+<!-- ============ TRAININGS ============ -->
+<section id="trainings">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Trainings &amp; Certificates</div>
+      <h2>A diverse, complementary formation.</h2>
+      <p class="lede">Analytical rigor, technical skill, and creativity — combined through both
+        academic study and hands-on training, in person and online.</p>
+    </div>
+
+    <div class="reveal">
+      <h4 style="font-family:'IBM Plex Mono',monospace; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage); margin-bottom:24px;">Academic Trainings</h4>
+      <div class="timeline">
+        <div class="t-item"><span class="yr">2025 – 2026</span><h4>Ph.D. English for Specific Purposes (in progress)</h4><div class="place">Modibbo Adama University, Nigeria</div></div>
+        <div class="t-item"><span class="yr">2022 – 2024</span><h4>Master II, English Language</h4><div class="place">University of Ngaoundéré</div></div>
+        <div class="t-item"><span class="yr">2021 – 2022</span><h4>Master I, English Language</h4><div class="place">University of Ngaoundéré</div></div>
+        <div class="t-item"><span class="yr">2020 – 2021</span><h4>Licence 3, English Language</h4><div class="place">University of Maroua</div></div>
+        <div class="t-item"><span class="yr">2019 – 2020</span><h4>Licence 2, English Language</h4><div class="place">University of Maroua</div></div>
+        <div class="t-item"><span class="yr">2018 – 2019</span><h4>Licence 1, English Language</h4><div class="place">University of Maroua</div></div>
+        <div class="t-item"><span class="yr">2017 – 2018</span><h4>Baccalauréat A4 Allemand</h4><div class="place">Government High School of Touboro</div></div>
+        <div class="t-item"><span class="yr">2016 – 2017</span><h4>Probatoire A4 Allemand</h4><div class="place">Government High School of Gor</div></div>
+        <div class="t-item"><span class="yr">2014 – 2015</span><h4>BEPC</h4><div class="place">Lycée de Gor</div></div>
+      </div>
+    </div>
+
+    <div class="badge-cols reveal">
+      <div>
+        <h4>Online Trainings</h4>
+        <ul class="badge-list">
+          <li>International Workshop, Mariam Abacha University of Nigeria</li>
+          <li>Monitoring and Evaluation</li>
+          <li>Project Management</li>
+          <li>Gender-Based Violence</li>
+          <li>Managing Sexual Violence Against Aid Workers</li>
+        </ul>
+      </div>
+      <div>
+        <h4>In-Person Trainings</h4>
+        <ul class="badge-list">
+          <li>Linguistics Center — Progress Report, Lower Intermediate B</li>
+          <li>Linguistics Center — Progress Report, Intermediate A</li>
+          <li>Cinematography &amp; Audiovisual Arts — Attestation de fin de formation</li>
+          <li>Office Administration (Secretarial &amp; Office Tools)</li>
+          <li>Data Analysis</li>
+          <li>Graphic Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATION ============ -->
+<section id="publication">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Published Article</div>
+      <h2>Peer-reviewed research.</h2>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-icon">DOI</div>
+      <div>
+        <h3>Home Language Use in Multilingual Workplace: Exploring Practices, Attitudes, and
+          Relevance in Ngaoundéré Public Administration</h3>
+        <div class="journal">British Journal of English Linguistics</div>
+        <a class="doi" href="https://doi.org/10.37745/bjel.2013/vol13n17290" target="_blank" rel="noopener">doi.org/10.37745/bjel.2013/vol13n17290</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container contact-wrap">
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's collaborate on research that matters.</h2>
+      <p style="margin-top:20px; color:var(--ink-soft); font-size:16px; max-width:46ch;">
+        For academic collaboration, research discussion, or professional engagement, feel free to
+        connect.
+      </p>
+    </div>
+    <ul class="contact-list reveal">
+      <li><span class="label">Email</span><a href="mailto:daoudaabdoulaye981@gmail.com">daoudaabdoulaye981@gmail.com</a></li>
+      <li><span class="label">Phone</span><a href="tel:+23408083648485">+234 0808 364 8485</a></li>
+      <li><span class="label">WhatsApp</span><a href="https://wa.me/237671606935" target="_blank" rel="noopener">+237 671 606 935</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  © 2026 Abdoulaye Daouda — Modibbo Adama University, Yola, Nigeria
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Sticky nav shadow
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 12){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+  document.querySelectorAll('.m-link').forEach(l => {
+    l.addEventListener('click', () => { menu.style.display = 'none'; });
+  });
+</script>
+
+</body>
+</html>
